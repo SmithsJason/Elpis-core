@@ -1,0 +1,50 @@
+module.exports={
+    model:'b站课堂',
+    name:'b站课程管理系统',
+    menu:[
+        {
+            key:'video',
+            name:'视频管理(B站)',
+
+        },
+        {
+            key:'user',
+            name:'用户管理(B站)',
+            
+        },
+        {
+        key:'traffic',
+        name:'课程资料',
+        menuType:'module',
+        moduleType:'sider',
+        siderConfig:{
+           menu:[{
+            key:'pdf',
+            name:'PDF',
+            menuType:'module',
+            moduleType:'custom',
+            customConfig:{
+                path:'/todo'
+            }
+           }, {
+            key:'excel',
+            name:'Excel',
+            menuType:'module',
+            moduleType:'custom',
+            customConfig:{
+                path:'/todo'
+            }
+           }, {
+            key:'ppt',
+            name:'Ppt',
+            menuType:'module',
+            moduleType:'custom',
+            customConfig:{
+                path:'/todo'
+            }
+           }
+        ]
+        },
+    }
+]
+}
