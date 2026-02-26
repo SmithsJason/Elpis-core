@@ -29,32 +29,21 @@ module.exports = {
         app.env = env(app);
         // 先加载 config，保证后续 loader 与 controller 中可以安全访问 app.config
         configLoader(app);
-        console.log(app.config);
-        console.log(`--start: configLoader`);
 
         // 加载 middlewares
         middlewareLoader(app);
-        console.log('done');
 
         // 加载 router-schema
         routerSchemaLoader(app);
-        console.log(app.routerSchema);
-        console.log(`--start: routerSchemaLoader`);
         
         // 加载 controller
         controllerLoader(app);
-        console.log(app.controller);
-        console.log(`--start: controllerLoader`);
 
         // 加载 service
         serviceLoader(app);
-        console.log(app.service);
-        console.log(`--start: serviceLoader`);
 
         // 加载 extend
         extendLoader(app);
-        console.log(app.extend);
-        console.log(`--start: extendLoader`);
 
         //注册全局中间件
         //app/middleware.js
@@ -66,8 +55,6 @@ module.exports = {
 
         //注册路由
         routerLoader(app);
-        console.log(app.router);
-        console.log(`--start: routerLoader`);
 
         //启动服务（测试场景可通过 options.listen === false 禁用监听）
         const shouldListen = options.listen !== false;
