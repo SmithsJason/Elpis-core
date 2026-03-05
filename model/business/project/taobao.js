@@ -16,7 +16,7 @@ module.exports={
         moduleTyle:'sider',
         siderConfig:{
             menu:[{
-                key:'common',
+                key:'coupon',
                 name:'优惠券',
                 menuType:'module',
                 customConfig:{

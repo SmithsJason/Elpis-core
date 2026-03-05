@@ -3,6 +3,18 @@ module.exports = (app) => {
     const modelList =require('../../model/index.js')(app)
     return class projectService extends BaseService {
         /**
+         * 根据 projectKey 获取项目配置
+         */
+        get(projKey) {
+            let projConfig=null;
+            modelList.forEach(modelItem=>{
+                if(modelItem.project[projKey]){
+                    projConfig=modelItem.project[projKey];
+                }
+            });
+            return projConfig;
+        }
+        /**
          * 获取统一模型下的项目列表
          */
         getList(projKey) {
