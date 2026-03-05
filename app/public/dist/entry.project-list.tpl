@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <link href="/static/normalize.css" rel="stylesheet">
   <link href="/static/logo.png" rel="icon" type="image/x-icon">
-<script defer src="http://127.0.0.1:9002/public/dist/dev/js/runtime~entry.entry.project-list_8d1cb656.bundle.js"></script><script defer src="http://127.0.0.1:9002/public/dist/dev/js/vendors_5d2a7824.bundle.js"></script><script defer src="http://127.0.0.1:9002/public/dist/dev/js/entry.entry.project-list_f42acdd4.bundle.js"></script></head>
+<script defer src="http://127.0.0.1:9002/public/dist/dev/js/runtime~entry.entry.project-list_88004c7d.bundle.js"></script><script defer src="http://127.0.0.1:9002/public/dist/dev/js/vendors_5d2a7824.bundle.js"></script><script defer src="http://127.0.0.1:9002/public/dist/dev/js/entry.entry.project-list_f42acdd4.bundle.js"></script></head>
 <body style="margin:0">
  <div id="root"></div>
  <input id="env" value="{{ env }}" style="display: none;">

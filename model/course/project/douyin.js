@@ -2,6 +2,7 @@ module.exports={
     model:'抖音课堂',
     name:'抖音课堂',
     desc:'抖音课堂课程管理系统',
+    homepage:'/course/douyin',
     menu:[{
         key:'traffic',
         name:'流量管理',
