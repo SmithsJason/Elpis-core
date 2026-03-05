@@ -2,12 +2,26 @@ module.exports = (app) => {
     const BaseController = require('./base')(app);
     return class projectController extends BaseController {
         /**
-         * 获取当前 projectKey 对应模型下的项目列表 （如果无projectKey 全量获取）
-         */
-        async getList(ctx) {
+         * 根据 projectKey 获取项目配置
+        */
+        get(ctx){
             const { proj_key: projKey } = ctx.request.query;
             const { project: projectService } = app.service;
-            const projectList = await projectService.getList(projKey);
+            const projConfig =  projectService.get(projKey);
+            if(!projConfig){
+                this.fail(ctx, '项目不存在');
+                return;
+            }
+            this.success(ctx, projConfig);
+        }
+        /**
+         * 
+         * 获取当前 projectKey 对应模型下的项目列表 （如果无projectKey 全量获取）
+         */
+        getList(ctx) {
+            const { proj_key: projKey } = ctx.request.query;
+            const { project: projectService } = app.service;
+            const projectList = projectService.getList(projKey);
             //构造关键数据list
             const dtoProjectList=projectList.map(item=>{
                 const {modelKey,key,name,desc,homepage} =item;
