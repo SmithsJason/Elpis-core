@@ -18,6 +18,7 @@ module.exports = {
         'no-console': 'off',
         'no-debugger': 'warn',
         'no-unused-vars': 'warn',
+        'vue/multi-word-component-names': 'off',
     },
 };
 
