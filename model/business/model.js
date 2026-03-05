@@ -1,6 +1,7 @@
 module.exports={
     model:'dashboard',
     name:'电商系统',
+    homepage:'/business',
     menu:[{
         key:'product',
         name:'商品管理',

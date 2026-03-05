@@ -2,6 +2,7 @@ module.exports={
     model:'淘宝',
     name:'淘宝',
     desc:'淘宝电商系统',
+    homepage:'/business/taobao',
     menu:[{
         key:'order',
         moduleTyle:'iframe',

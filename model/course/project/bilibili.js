@@ -2,6 +2,7 @@ module.exports={
     model:'b站课堂',
     name:'b站课堂',
     desc:'b站课堂系统',
+    homepage:'/course/bilibili',
     menu:[
         {
             key:'video',
