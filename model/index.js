@@ -51,10 +51,11 @@ module.exports=(app)=>{
     fileList.forEach(file => {
         if(file.indexOf('index.js')>-1){return ;}
         //区分配置类型（model /project）
-        const type=file.indexOf(`${sep}project${sep}`)>-1?'project':'model';
+        const normalizedFile=file.replace(/\\/g,'/');
+        const type=normalizedFile.indexOf('/project/')>-1?'project':'model';
         if(type==='project'){
-            const modelKey=file.match(/\/model\/(.*?)\/project/)?.[1];
-            const projectKey=file.match(/\/project\/(.*?)\.js/)?.[1];
+            const modelKey=normalizedFile.match(/\/model\/(.*?)\/project/)?.[1];
+            const projectKey=normalizedFile.match(/\/project\/(.*?)\.js/)?.[1];
             let modelItem=modelList.find(item=>item.model?.key===modelKey);
             if(!modelItem){ //初始化 model 数据结构
                 modelItem={};
@@ -69,7 +70,7 @@ module.exports=(app)=>{
             modelItem.modelKey=modelKey;
         }
         if(type==='model'){
-            const modelKey=file.match(/\/model\/(.*?)\/model\.js/)?.[1];
+            const modelKey=normalizedFile.match(/\/model\/(.*?)\/model\.js/)?.[1];
             let modelItem=modelList.find(item=>item.model?.key===modelKey);
             if(!modelItem){
                 modelItem={};

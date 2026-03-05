@@ -61,7 +61,9 @@ module.exports = {
         if (shouldListen) {
             try {
                 const port = options.port || process.env.PORT || 8080;
-                app.listen(port);
+                app.listen(port, () => {
+                    console.log(`[elpis] server is running at http://localhost:${port}`);
+                });
             } catch (error) {
                 console.error(error.message);
                 process.exit(1);

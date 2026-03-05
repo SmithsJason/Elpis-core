@@ -37,7 +37,7 @@ defineProps({
         default: '项目列表'
     }
 })
-const userName=ref('111');
+const userName=ref('莫西');
 const handleUserCommand=function(event){
     console.log(event);
 }
@@ -71,7 +71,7 @@ const handleUserCommand=function(event){
                 margin-left:auto;
                 min-width: 100px;
                 .avatar{
-                    margin-right:120px;
+                    margin-right:10px;
                     width: 30px;
                     height: 30px;
                     border-radius: 50px;
@@ -91,7 +91,12 @@ const handleUserCommand=function(event){
 
     }
 }
-:deep(.el-header){
+:deep(.el-header)
+{
     padding: 0;
+}
+:deep(.el-main){
+    padding: 5px;
+
 }
 </style>

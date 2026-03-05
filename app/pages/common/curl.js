@@ -1,4 +1,5 @@
 const md5 = require("md5");
+import axios from "axios";
 import { ElMessage } from "element-plus";
 /**
  * 前端封装 curl 方法
