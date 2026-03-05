@@ -19,7 +19,7 @@ module.exports = (app) => {
                 return;
             }
             const resBody={
-                sucess:false,
+                success:false,
                 code:500,
                 message:'网络异常，请稍后重试'
             }

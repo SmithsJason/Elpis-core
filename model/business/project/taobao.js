@@ -1,6 +1,7 @@
 module.exports={
     model:'淘宝',
-    name:'淘宝电商系统',
+    name:'淘宝',
+    desc:'淘宝电商系统',
     menu:[{
         key:'order',
         moduleTyle:'iframe',
