@@ -2,7 +2,7 @@ module.exports={
     model:'b站课堂',
     name:'b站课堂',
     desc:'b站课堂系统',
-    homepage:'/todo?proj_key=bilibili&key=video',
+    homePage:'/todo?proj_key=bilibili&key=video',
     menu:[
         {
             key:'video',

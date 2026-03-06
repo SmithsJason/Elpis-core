@@ -24,13 +24,13 @@ module.exports = (app) => {
             const projectList = projectService.getList(projKey);
             //构造关键数据list
             const dtoProjectList=projectList.map(item=>{
-                const {modelKey,key,name,desc,homepage} =item;
+                const {modelKey,key,name,desc,homePage} =item;
                 return {
                     modelKey,
                     key,
                     name,
                     desc,
-                    homepage
+                    homePage
                 }
             })
             this.success(ctx, dtoProjectList);
@@ -49,8 +49,8 @@ module.exports = (app) => {
                 const dtoModel={key,name,desc};
                 //构造 project 关键数据
                 const dtoProject=Object.keys(project).reduce((preObj,projKey)=>{
-                    const {key,name,desc,homepage} =project[projKey];
-                    preObj[projKey]={key,name,desc,homepage};
+                    const {key,name,desc,homePage} =project[projKey];
+                    preObj[projKey]={key,name,desc,homePage};
                     return preObj;
                 },{})
                 preList.push({

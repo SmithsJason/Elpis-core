@@ -90,7 +90,7 @@ describe('测试 project 相关接口', function () {
             assert(resData.modelKey);
             assert(resData.name);
             assert(resData.desc !==undefined);
-            assert(resData.homepage !==undefined);
+            assert(resData.homePage !==undefined);
             const {menu} = resData;
             assert(menu);
             assert(menu.length>0);
@@ -114,7 +114,7 @@ describe('测试 project 相关接口', function () {
             assert(item.key);
             assert(item.name);
             assert(item.desc !==undefined);
-            assert(item.homepage !==undefined);
+            assert(item.homePage !==undefined);
         }
     })
     it('GET /api/project/list with proj_key', async () => {
@@ -134,7 +134,7 @@ describe('测试 project 相关接口', function () {
             assert(item.key);
             assert(item.name);
             assert(item.desc !==undefined);
-            assert(item.homepage !==undefined);
+            assert(item.homePage !==undefined);
         }
     })
     it('GET /api/project/model_list', async () => {

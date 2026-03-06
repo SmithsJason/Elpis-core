@@ -2,7 +2,7 @@ module.exports={
     model:'淘宝',
     name:'淘宝',
     desc:'淘宝电商系统',
-    homepage:'/todo?proj_key=taobao&key=video',
+    homePage:'/todo?proj_key=taobao&key=video',
     menu:[{
         key:'order',
         moduleTyle:'iframe',

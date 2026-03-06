@@ -2,7 +2,7 @@ module.exports={
     model:'京东',
     name:'京东',
     desc:'京东电商系统',
-    homepage:'/todo?proj_key=jd&key=product',
+    homePage:'/todo?proj_key=jd&key=product',
     menu:[{
         key:'shop-setting',
         name:'店铺设置',

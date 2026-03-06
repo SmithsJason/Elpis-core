@@ -1,5 +1,5 @@
 <template>
-    <headerContainer :title="projName">
+    <header-container :title="projName">
         <template #menu-content>
             <!--根据 menuStore中的menuList渲染-->
             <el-menu 
@@ -32,13 +32,13 @@
         <template #main-content>
             <slot name="main-content"></slot>
         </template>
-    </headerContainer>
+    </header-container>
 </template>
 <script setup>
 import {ref,watch,onMounted} from 'vue';
 import { ArrowDown } from '@element-plus/icons-vue';
 import {useRoute} from 'vue-router';
-import headerContainer from '$widgets/header-container/header-container.vue';
+import HeaderContainer from '$widgets/header-container/header-container.vue';
 import SubMenu from './sub-menu/sub-menu.vue';
 import {useProjectStore} from '$store/project.js';
 import {useMenuStore} from '$store/menu.js';
@@ -77,10 +77,10 @@ const onMenuSelect = function(menuKey){
 }
 const handleProjectCommand = function(projectKey){
     const projectItem=projectStore.projectList.find(item =>item.key===projectKey);
-    if(!projectItem || !projectItem.homepage){
+    if(!projectItem || !projectItem.homePage){
         return;}
     const {origin, pathname} = window.location;
-    window.location.replace(`${origin}${pathname}#${projectItem.homepage}`);
+    window.location.replace(`${origin}${pathname}#${projectItem.homePage}`);
     window.location.reload();
 }
 </script>

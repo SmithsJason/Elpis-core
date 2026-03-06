@@ -1,7 +1,7 @@
 module.exports={
     model:'dashboard',
     name:'课程系统',
-    homepage:'/course',
+    homePage:'/course',
     menu:[{
         key:'video',
         name:'视频管理',

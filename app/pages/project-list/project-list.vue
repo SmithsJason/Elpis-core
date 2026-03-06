@@ -59,8 +59,8 @@ async function getModelList(){
 onMounted(()=>getModelList());
 const onEnter=(projItem)=>{
     const {origin} = window.location;
-    const homepage = projItem.homepage || `/todo?proj_key=${projItem.key}`;
-    window.open(`${origin}/view/dashboard#${homepage}`);
+    const homePage = projItem.homePage || `/todo?proj_key=${projItem.key}`;
+    window.open(`${origin}/view/dashboard#${homePage}`);
 }
 </script>
 <style lang="less" scoped>
