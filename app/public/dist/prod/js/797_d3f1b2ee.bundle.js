@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkelpis=self.webpackChunkelpis||[]).push([[797],{6797(e,u,n){n.r(u),n.d(u,{default:()=>l});var r=n(785);const s={},l=(0,n(6262).A)(s,[["render",function(e,u){return(0,r.uX)(),(0,r.CE)("h1",null,"iframe-view")}]])}}]);
