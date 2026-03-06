@@ -2,7 +2,7 @@ module.exports={
     model:'拼多多',
     name:'拼多多',
     desc:'拼多多电商系统',
-    homepage:'/business/pdd',
+    homepage:'/todo?proj_key=pdd&key=video',
     menu:[{
         key:'product',
         name:'商品管理（拼多多）',

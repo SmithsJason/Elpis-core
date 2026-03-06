@@ -30,7 +30,7 @@ module.exports = (app) => {
   // 5. 根路径重定向到首页
   router.get('/', async (ctx) => {
     ctx.status = 302; // 临时重定向
-    ctx.redirect(app?.options?.homePage ?? '/view/page1');
+    ctx.redirect(app.options.homePage);
   });
 
   // 6. 注册路由到 app 上

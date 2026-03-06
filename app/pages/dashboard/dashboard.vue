@@ -1,16 +1,23 @@
 <template>
     <el-config-provider :locale="zhCn">
-         <headerView :projName="projName"></headerView>
+         <headerView :projName="projName" @menu-select="onMenuSelect">
+            <template #main-content>
+                <router-view></router-view>
+            </template>
+         </headerView>
     </el-config-provider>
  
 </template>
 <script setup>
 import { ref,onMounted } from 'vue';
+import { useRouter,useRoute } from 'vue-router';
 import zhCn from 'element-plus/es/locale/lang/zh-cn';
 import headerView from './complex-view/header-view/header-view.vue';
 import $curl from '$common/curl.js';
 import { useProjectStore } from '$store/project.js';
 import { useMenuStore } from '$store/menu.js';
+const router=useRouter();
+const route=useRoute();
 const projectStore=useProjectStore();
 const menuStore=useMenuStore();
 onMounted(() => {
@@ -23,8 +30,7 @@ async function getProjectConfig() {
     const res=await $curl({
         method:'get',
         url:'/api/project',
-        //todo：动态获取 暂时写死
-        query:{proj_key:'pdd'},
+        query:{proj_key:route.query.proj_key},
     });
     if(!res||!res.success||!res.data){
         return;
@@ -39,13 +45,32 @@ async function getProjectList() {
     const res=await $curl({
         method:'get',
         url:'/api/project/list',
-        //todo：动态获取 暂时写死
-        query:{proj_key:'pdd'},
+        query:{proj_key:route.query.proj_key},
     });
     if(!res||!res.success||!res.data){
         return;
     }
     projectStore.setProjectList(res.data);
+}
+//点击菜单回调方法
+const onMenuSelect = function(menuItem){
+    const {moduleType,key,customConfig} =menuItem;
+    //如果是当前页面，不处理
+    if(key ===route.query.key) { return;}
+    const pathMap ={
+        sider:'/sider',
+        iframe:'/iframe',
+        schema:'/schema',
+        custom:customConfig?.path
+    };
+    console.log('pathMap',pathMap);
+    router.push({
+        path:pathMap[moduleType],
+        query:{
+            key,
+            proj_key:route.query.proj_key
+        }
+    })
 }
 </script>
 <style lang="less" scoped>

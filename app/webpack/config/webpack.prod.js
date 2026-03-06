@@ -27,7 +27,7 @@ const webpackConfig = merge.smart(baseConfig, {
     output:{
         filename: 'js/[name]_[contenthash:8].bundle.js',
         path: path.resolve(process.cwd(), './app/public/dist/prod'),
-        publicPath:'/dist/prod',
+        publicPath:'/dist/prod/',
         crossOriginLoading:'anonymous'
     },
     module: {
@@ -96,7 +96,6 @@ const webpackConfig = merge.smart(baseConfig, {
         minimize: true,
         minimizer: [
             new TerserPlugin({
-                cache:true,  //启用缓存来加速构建过程
                 parallel:true,//利用多核 cpu 的优势来加快压缩速度 
                 terserOptions:{
                     compress:{

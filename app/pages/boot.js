@@ -35,7 +35,7 @@ export default (pageComponent, { routers = [], libs = [] } = {})=>{
     if(routers&&routers.length){
         const router = createRouter({
             history: createWebHashHistory(),//采用hash模式
-            routes: [],
+            routes: routers,
         });
         app.use(router);
         router.isReady().then(()=>{

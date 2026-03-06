@@ -6,7 +6,7 @@
             :default-active="activeKey"
             :ellipsis="false"
             mode="horizontal"
-            @select="onSelect">
+            @select="onMenuSelect">
         <template v-for="item in menuStore.menuList" :key="item.key">
             <SubMenu v-if="item.subMenu&&item.subMenu.length>0" :menuItem="item"></SubMenu>
             <el-menu-item v-else :index="item.key">{{ item.name }}</el-menu-item>
@@ -35,8 +35,9 @@
     </headerContainer>
 </template>
 <script setup>
-import {ref} from 'vue';
+import {ref,watch,onMounted} from 'vue';
 import { ArrowDown } from '@element-plus/icons-vue';
+import {useRoute} from 'vue-router';
 import headerContainer from '$widgets/header-container/header-container.vue';
 import SubMenu from './sub-menu/sub-menu.vue';
 import {useProjectStore} from '$store/project.js';
@@ -47,11 +48,40 @@ defineProps({
         default: '项目列表'
     }
 })
+const emit=defineEmits(['menu-select']);
+const route=useRoute();
 const projectStore=useProjectStore();
 const menuStore=useMenuStore();
 const activeKey=ref('');
-function onSelect(key) {
-    activeKey.value=key;
+
+watch(()=>route.query.key, ()=>{setActiveKey()});
+
+watch(()=>menuStore.menuList, ()=>{setActiveKey()});
+
+onMounted(()=>{setActiveKey()});
+
+const setActiveKey=()=>{
+    const menuItem=menuStore.findMenuItem({
+        key:'key',
+        value: route.query.key
+    });
+    activeKey.value=menuItem?.key;
+}
+
+const onMenuSelect = function(menuKey){
+    const menuItem=menuStore.findMenuItem({
+        key:'key',
+        value: menuKey
+    });
+    emit('menu-select', menuItem);
+}
+const handleProjectCommand = function(projectKey){
+    const projectItem=projectStore.projectList.find(item =>item.key===projectKey);
+    if(!projectItem || !projectItem.homepage){
+        return;}
+    const {origin, pathname} = window.location;
+    window.location.replace(`${origin}${pathname}#${projectItem.homepage}`);
+    window.location.reload();
 }
 </script>
 <style lang="less" scoped>

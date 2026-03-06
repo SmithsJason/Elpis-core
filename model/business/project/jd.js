@@ -1,0 +1,29 @@
+module.exports={
+    model:'京东',
+    name:'京东',
+    desc:'京东电商系统',
+    homepage:'/todo?proj_key=jd&key=product',
+    menu:[{
+        key:'shop-setting',
+        name:'店铺设置',
+        menuType:'group',
+        subMenu:[{
+            key:'info-setting',
+            name:'店铺信息',
+            menuType:'module',
+            moduleType:'custom',
+            customConfig:{
+                path:'/todo'
+            }
+        },{
+            key:'quality-setting',
+            name:'店铺资质',
+            menuType:'module',
+            moduleType:'iframe',
+            iframeConfig:{
+                path:'www.baidu.com'
+            }
+
+        }]
+    }]
+}
