@@ -58,7 +58,9 @@ async function getModelList(){
 }
 onMounted(()=>getModelList());
 const onEnter=(projItem)=>{
-    console.log(`跳转到${projItem.name}`);
+    const {origin} = window.location;
+    const homepage = projItem.homepage || `/todo?proj_key=${projItem.key}`;
+    window.open(`${origin}/view/dashboard#${homepage}`);
 }
 </script>
 <style lang="less" scoped>

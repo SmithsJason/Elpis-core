@@ -10,14 +10,12 @@
   </el-sub-menu>
 </template>
 <script setup>
-
 const {menuItem} =defineProps({
     menuItem: {
         type: Object,
         default: () => ({}),
     }
 })
-
 </script>
 <style lang="less" scoped>
 

@@ -134,6 +134,8 @@ module.exports = {
         },
         commons: {
           //公共模块
+          //只处理common和widgets
+          test: /[\\/]common|widgets[\\/]/,
           name:'common',//模块名称
           minChunks: 2, //被两处引用即被视为公共模块
           minSize: 1, //最小分割文件大小（1 byte）
