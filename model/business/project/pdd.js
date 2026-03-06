@@ -14,7 +14,7 @@ module.exports={
         name:'数据分析',
         menuType:'module',
         moduleType:'sider',
-        sliderConfig:{
+        siderConfig:{
             menu:[{
                 key:'analysis',
                 name:'电商罗盘',

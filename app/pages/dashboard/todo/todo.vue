@@ -1,5 +1,5 @@
 <template>
-   <h1>待开发</h1>
+  <div></div>
 </template>
 <script setup>
 

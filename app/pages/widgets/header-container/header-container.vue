@@ -96,7 +96,7 @@ const handleUserCommand=function(event){
     padding: 0;
 }
 :deep(.el-main){
-    padding: 5px;
+    padding: 0;
 
 }
 </style>

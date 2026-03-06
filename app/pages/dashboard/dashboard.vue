@@ -63,7 +63,6 @@ const onMenuSelect = function(menuItem){
         schema:'/schema',
         custom:customConfig?.path
     };
-    console.log('pathMap',pathMap);
     router.push({
         path:pathMap[moduleType],
         query:{
@@ -74,5 +73,7 @@ const onMenuSelect = function(menuItem){
 }
 </script>
 <style lang="less" scoped>
-
+:deep(.el-main){
+    margin: 0;
+}
 </style>

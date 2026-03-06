@@ -4,7 +4,7 @@
       <span>{{ menuItem.name }}</span>
     </template>
     <div :key="item.key" v-for="item in menuItem.subMenu" >
-      <SubMenu v-if="item.subMenu&&item.subMenu.length>0" :menuItem="item"></SubMenu>
+      <sub-menu v-if="item.subMenu&&item.subMenu.length>0" :menuItem="item"></sub-menu>
      <el-menu-item v-else :index="item.key">{{ item.name }}</el-menu-item>
     </div>
   </el-sub-menu>
