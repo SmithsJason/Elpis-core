@@ -24,7 +24,6 @@
             </el-row>
             </el-row>
         </el-header>
-        <el-main class="main-header"></el-main>
         <!--插槽 外部拓展填充区域-->
         <slot name="main-content"></slot>
     </el-container>
@@ -86,9 +85,6 @@ const handleUserCommand=function(event){
                 }
             }
         }
-    }
-    .main-header{
-
     }
 }
 :deep(.el-header)

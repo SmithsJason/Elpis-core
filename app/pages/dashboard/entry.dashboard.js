@@ -19,13 +19,13 @@ routers.push({
     path: '/sider',
     component: () => import('./complex-view/sider-view/sider-view.vue'),
     children:[{
-        path: '/iframe',
+        path: 'iframe',
         component: () => import('./complex-view/iframe-view/iframe-view.vue'),
     },{
-        path: '/schema',
+        path: 'schema',
         component: () => import('./complex-view/schema-view/schema-view.vue'),
     },{
-        path: '/todo',
+        path: 'todo',
         component: () => import('./todo/todo.vue'),
     }]
 });

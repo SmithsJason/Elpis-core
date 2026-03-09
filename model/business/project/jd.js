@@ -21,7 +21,7 @@ module.exports={
             menuType:'module',
             moduleType:'iframe',
             iframeConfig:{
-                path:'www.baidu.com'
+                path:'https://www.openstreetmap.org/export/embed.html'
             }
 
         }]

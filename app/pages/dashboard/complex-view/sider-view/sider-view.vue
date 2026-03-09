@@ -39,7 +39,7 @@ const activeKey = ref('');
 const setActiveKey = function () {
    let siderMenuItem = menuStore.findMenuItem({
       key: 'key',
-      value: route.query.key
+      value: route.query.sider_key
    });
    //如果首次加载sider-view，用户未选中左侧菜单，需要确认选中第一个
    if(!siderMenuItem){
@@ -51,20 +51,23 @@ const setActiveKey = function () {
          const siderMenuList = hMenuItem.siderConfig.menu;
          siderMenuItem = menuStore.findFirstMenuItem(siderMenuList);
          //处理选中逻辑
-         if(!siderMenuItem){
+         if(siderMenuItem){
           handleMenuSelect(siderMenuItem.key);
          }
       }
    }
+   activeKey.value = siderMenuItem?.key;
 }
 
 
 watch(() => route.query.key, () => {
-    setActiveKey();
+   setMenuList();
+   setActiveKey();
 });
 watch(() => menuStore.menuList, () => {
-    setMenuList();
-});
+   setMenuList();
+   setActiveKey();
+},{deep:true});
 
 onMounted(() => {
    setMenuList();

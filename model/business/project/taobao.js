@@ -7,7 +7,7 @@ module.exports={
         key:'order',
         moduleTyle:'iframe',
         iframeConfig:{
-            path:'https://wwww.baidu.com'
+            path:'https://www.openstreetmap.org/export/embed.html'
         }
     },{
         key:'operating',

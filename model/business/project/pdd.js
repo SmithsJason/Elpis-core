@@ -28,7 +28,7 @@ module.exports={
                 name:'信息查询',
                 moduleType:'iframe',
                 iframeConfig:{
-                    path:'https://wwww.baidu.com'
+                    path:'https://www.openstreetmap.org/export/embed.html'
                 }
             }]
         }
@@ -37,7 +37,7 @@ module.exports={
         name:'信息查询',
         moduleType:'iframe',
         iframeConfig:{
-            path:'https://wwww.baidu.com'
+            path:'https://www.openstreetmap.org/export/embed.html'
         }
     }]
 }
