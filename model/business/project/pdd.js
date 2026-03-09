@@ -9,6 +9,12 @@ module.exports={
     },{
         key:'client',
         name:'客户管理（拼多多）',
+        menuType:'module',
+        moduleType:'schema',
+        schemaConfig:{
+           api:'/api/client',
+           schema:{}
+        },
     },{
         key:'data',
         name:'数据分析',
