@@ -7,11 +7,14 @@
 <script setup>
 import SearchPanel from './complex-view/search-panel.vue';
 import TablePanel from './complex-view/table-panel.vue';
+import {provide} from 'vue';
 import {useSchema} from './hook/schema.js';
-const {api} = useSchema();
-setTimeout(() => {
-    console.log('api',api.value);
-}, 1000);
+const {api,tableConfig,tableSchema} = useSchema();
+provide('schemaViewData',{
+   api,
+   tableConfig,
+   tableSchema
+})
 </script>
 <style lang="less" scoped>
 .schema-view{

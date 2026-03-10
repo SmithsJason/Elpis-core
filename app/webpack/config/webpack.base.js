@@ -82,7 +82,7 @@ module.exports = {
   //配置模块解析的具体行为（定义在webpack在打包时，如何找到并解析具体模块的路径）
   resolve: {
     extensions: ['.js', '.vue','.less','.css'],
-    // 配置模块解析的别名
+    // 配置模块解析的路径别名
     alias: {
         $pages: path.resolve(process.cwd(), './app/pages'),
         $common: path.resolve(process.cwd(), './app/pages/common'),

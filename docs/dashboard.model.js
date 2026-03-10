@@ -43,7 +43,9 @@
 //                     ...
 //                 }
 //             },
-//             tableConfig:{}, //tabel 相关配置
+//             //tabel 相关配置
+//             tableConfig:{
+// }, 
 //             searchConfig:{},//search-bar 相关配置
 //             components:{},//模块组件
 //         },       
