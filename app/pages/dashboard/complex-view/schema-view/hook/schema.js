@@ -8,7 +8,7 @@ export const useSchema = function(){
 
     const api=ref('');
     const tableSchema=ref({});
-    const tableConfig=ref(undefined);
+    const tableConfig=ref({});
 
     //构建schemmaConfig 相关配置，输送给schemaView组件
     const buildData=function(){

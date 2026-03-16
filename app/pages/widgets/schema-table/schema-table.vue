@@ -48,32 +48,56 @@ const {schema,api,buttons}=toRefs(props);
 const loading=ref(false);
 const tableData=ref([]);
 const total=ref(0);
-const page=ref(1);
+const currentPage=ref(1);
 const pageSize=ref(50);
 
-const fetchData=async function(){
-    if(!api.value){ return; }
+const fetchTableData= async function(){
+    if(!api.value) {return;}
+
     loading.value=true;
-    try{
-        const res=await $curl.get(api.value,{
-            params:{
-                page:page.value,
-                pageSize:pageSize.value
-            }
-        });
-        if(res&&res.data){
-            tableData.value=res.data.list??[];
-            total.value=res.data.total??0;
+
+    //请求 table 数据
+    const res=await $curl({
+        method:'get',
+        url:`${api.value}/list`,
+        query:{
+            page:currentPage.value,
+            pageSize:pageSize.value
         }
-    }finally{
-        loading.value=false;
+    })
+    loading.value=false;
+    if(!res||!res.success||!Array.isArray(res.data)){
+        tableData.value=[];
+        total.value=[];
+        return;
     }
+    tableData.value=buildTableData(res.data);
+    total.value=res.metadata.total;
+
+}
+/**
+ * 对后端返回的数据进行渲染的预处理
+ * @param {Object} data 列表数据
+ */
+const buildTableData= function(data){
+    if(!schema.value?.properties) {
+        return data;
+    }
+    return data.map(dataItem=>{
+        for(const dKey in dataItem){
+             const schemaItem=schema.value.properties[dKey];
+             if(schemaItem?.options?.toFixed){
+             dataItem[dKey]=dataItem[dKey].toFixed && dataItem[dKey].toFixed(schemaItem.options.toFixed);
+            }
+        }
+        return dataItem;
+    })
 }
 const initData=async function(){
-    page.value=1;
+    currentPage.value=1;
     pageSize.value=50;
     nextTick(async ()=>{
-        await fetchData();
+        await fetchTableData();
     })
 }
 </script>
